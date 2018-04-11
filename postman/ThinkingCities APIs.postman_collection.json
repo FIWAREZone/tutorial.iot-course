@@ -1241,7 +1241,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r    \"devices\": [ \r        { \r            \"device_id\": \"id_sen1\", \r            \"entity_name\": \"sen1\", \r            \"entity_type\": \"sensor\", \r            \"attributes\": [ \r                  { \"object_id\": \"t\", \"name\": \"temperature\", \"type\": \"float\" },\r                  { \"object_id\": \"h\", \"name\": \"humidity\", \"type\": \"float\" }\r            ],\r            \"lazy\":[\r                  { \"object_id\": \"l\", \"name\": \"luminosity\", \"type\": \"percentage\" }\r            ],\r            \"commands\": [\r                  { \"object_id\": \"u\", \"name\": \"turn\", \"type\": \"string\" }\r            ],\r            \"static_attributes\": [\r                  { \"name\": \"serialID\", \"type\": \"string\", \"value\": \"02598347\" }\r            ],\r      \"protocol\": \"IoTA-UL\",\r      \"transport\": \"MQTT\"\r        }\r    ]\r}\r"
+							"raw": "{\r    \"devices\": [ \r        { \r            \"device_id\": \"id_sen1\", \r            \"entity_name\": \"sen1\", \r            \"entity_type\": \"sensor\", \r            \"attributes\": [ \r                  { \"object_id\": \"t\", \"name\": \"temperature\", \"type\": \"float\" },\r                  { \"object_id\": \"h\", \"name\": \"humidity\", \"type\": \"float\" }\r            ],\r            \"lazy\":[\r                  { \"object_id\": \"l\", \"name\": \"luminosity\", \"type\": \"percentage\" }\r            ],\r            \"commands\": [\r                  { \"object_id\": \"u\", \"name\": \"turn\", \"type\": \"string\" }\r            ],\r            \"static_attributes\": [\r                  { \"name\": \"serialID\", \"type\": \"string\", \"value\": \"02598347\" }\r            ],\r      \"protocol\": \"IoTA-UL\",\r      \"transport\": \"HTTP\"\r        }\r    ]\r}\r"
 						},
 						"url": {
 							"raw": "https://{{host_iota}}:8088/iot/devices",
@@ -1304,7 +1304,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r  \"devices\": [\r    {\r      \"device_id\": \"id_lam1\",\r      \"entity_name\": \"lam1\",\r      \"entity_type\": \"lamp\",\r      \"attributes\": [\r        {\r          \"object_id\": \"l\",\r          \"name\": \"luminosity\",\r          \"type\": \"float\"\r        }\r      ],\r      \"protocol\": \"IoTA-JSON\",\r      \"transport\": \"MQTT\"\r    }\r  ]\r}\r"
+							"raw": "{\r  \"devices\": [\r    {\r      \"device_id\": \"id_lam1\",\r      \"entity_name\": \"lam1\",\r      \"entity_type\": \"lamp\",\r      \"attributes\": [\r        {\r          \"object_id\": \"l\",\r          \"name\": \"luminosity\",\r          \"type\": \"float\"\r        }\r      ],\r      \"protocol\": \"IoTA-JSON\",\r      \"transport\": \"HTTP\"\r    }\r  ]\r}\r"
 						},
 						"url": {
 							"raw": "https://{{host_iota}}:8088/iot/devices",
