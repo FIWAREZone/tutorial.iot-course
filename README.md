@@ -86,13 +86,11 @@ Antes de nada, es necesario disponer del IDE de arduino. En caso que no se dispo
 
 ### Instalar ESP8266 en arduino
 
-Lo primero que tenemos que añadir al repositorio de placas de desarrollo compatibles es el repositorio GitHub donde se encuentra todo el entorno de ESP8266. Para ello, hay que abrir las preferencias y añadir la una nueva URL al gestor de tarjetas tal y como se ve en la siguiente imagen:
-
-![image alt text](doc/files/image_4.png)
-
-Añadimos la siguiente URL:
+Lo primero que tenemos que añadir al repositorio de placas de desarrollo compatibles es el repositorio GitHub donde se encuentra todo el entorno de ESP8266. Para ello, hay que abrir las preferencias (Archivo -> Preferencias) y añadir una nueva URL al gestor de tarjetas tal y como se ve en la siguiente imagen:
 
 [http://arduino.esp8266.com/stable/package_esp8266com_index.json](http://arduino.esp8266.com/stable/package_esp8266com_index.json)
+
+![image alt text](doc/files/image_4.png)
 
 Una vez añadida le damos a OK y vamos al gestor de tarjetas (Herramientas -> placa-> Gestor de tarjetas). Allí deberemos buscar la nueva tarjeta o placa que hemos añadido, en este caso la ESP8266. Seleccionamos la versión y le damos a instalar. Esto llevará unos minutos mientras se descargan todas las utilidades y librerías.
 
