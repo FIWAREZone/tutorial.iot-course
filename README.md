@@ -100,7 +100,7 @@ Ya sólo nos queda seleccionar la nueva tarjeta, en este caso la placa **NodeMCU
 
 Además, deberemos configurar el puerto serie que está empleando el sistema. En el caso de Windows, deberemos seleccionar el puerto COM correspondiente (el que aparece en la sección de instalación del driver). En el caso de MacOS y Linux, deberemos seleccionar el dispositivo correspondiente con el formato /dev/* (dependiendo del sistema operativo)
 
-Antes de continuar, vamos a instalar unas librerías que van a facilitar el uso de la placa:
+Antes de continuar, vamos a instalar unas librerías que van a facilitar el uso de la placa (buscar en Programa -> Gestor de librerías):
 
 WiFiManager.h          - https://github.com/tzapu/WiFiManager
 
