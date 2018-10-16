@@ -52,13 +52,25 @@ En esta sección repasaremos como instalar y configurar los programas necesarios
 
 ## Instalación drivers USB
 
-Es necesario instalar los drivers para el convertidor de USB a USART a 3.3V incluido en la placa de desarrollo. Este chip es el CP2103 del fabricante SiLabs. Los drivers para los distintos sistemas operativos se pueden descargar desde la página web del fabricante:
+Es necesario instalar los drivers para el convertidor de USB a USART a 3.3V incluido en la placa de desarrollo. En el mercado existen distintos fabricantes de esta placa que pueden integrar distintos circuitos integrados que realizan esta función. En este caso, deberemos instalar el driver correspondiente. En cualquier caso, no existe ningún tipo de incompatibilidad entre ellos, puduiendose instalar ámbos al unísono. En la imagen a continuación podemos diferenciar los dos modelos más extendidos que de convertidor de USB a USART en las placas NodeMCU, que son el CH430G y el CP2102/3
+![image alt text](doc/files/image_6.png)
+
+En el caso del chip CP2102/3, del fabricante SiLabs, podremos descargar los drivers para los distintos sistemas operativos desde la página web del fabricante:
 
 [https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 
+En el caso del chip CH430G, podremos descargar los driver desde la siguiente página web:
+
+[Windows](http://www.wch.cn/downloads/CH341SER_ZIP.html)
+
+[MacOS](http://www.wch.cn/downloads/CH341SER_MAC_ZIP.html)
+
+[Linux](http://www.wch.cn/download/CH341SER_LINUX_ZIP.html)
+
+
 ### MAC OSX
 
-Para identificar que tenemos instalado correctamente los drivers del dispositivo, podremos ver en el informe del sistema (acerca de este mac) el dispositivo USB CP2102 USB to UART Bridge Controller
+Para identificar que tenemos instalado correctamente los drivers del dispositivo, podremos ver en el informe del sistema (acerca de este mac) el dispositivo USB CP2102 USB to UART Bridge Controller o el correspondiente al CH430G
 
 ![image alt text](doc/files/image_1.png)
 
@@ -68,7 +80,7 @@ En las últimas versiones de macOS es necesario habilitar el driver en el panel 
 
 ### Windows
 
-Tras descargar y ejecutar el instalador del driver provisto por el fabricante y, si fuera necesario, tras reiniciar el equipo nos debe aparecer algo similar a la siguiente imagen en el administrador de dispositivos:
+Tras descargar y ejecutar el instalador del driver provisto por el fabricante y, si fuera necesario, tras reiniciar el equipo nos debe aparecer algo similar a la siguiente imagen en el administrador de dispositivos (depende del controlador USB a UART):
 
 ![image alt text](doc/files/image_3.png)
 
