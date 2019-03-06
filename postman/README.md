@@ -1,5 +1,3 @@
-# Introducción
-
 Para hacer pruebas con la API de FIWARE será necesario disponer de una herramienta que permita hacer peticiones HTTP e interactuar con esta. En este caso, nosotros recomendamos la herramienta Postman, que permite gestionar las colecciones de peticiones, por lo que será muy sencillo realizar las operaciones necesarias.
 
 Postman permite definir un catálogo de peticiones (Collection) y exportar/importar para facilitar el uso por otras personas. 
