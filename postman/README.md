@@ -28,8 +28,6 @@ Postman permite definir un catálogo de peticiones (Collection) y exportar/impor
 
 ## Variables de entorno
 
-Una vez hayamos importado tanto la colección de peticiones como el entorno (los dos ficheros descargados en el punto anterior) 
-
 Las variables de entorno facilitan la gestión y modificación de los parámetros que se usan en las colecciones, como por ejemplo la URL del servidor en el que se encuentra instalada la plataforma FIWARE. Por ello, es necesario modificar las variables de entorno con los parámetros correspondientes:
 
 | Parametro         |descripción   												|
