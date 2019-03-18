@@ -6,7 +6,7 @@ Postman permite definir un catálogo de peticiones (Collection) y exportar/impor
 
 1. Descargar [Postman](https://www.getpostman.com/) e instalar
 
-2. Descargar el [Collection](ThinkingCities%20APIs.postman_collection.json) de peticiones que se van a utilizar en la práctica. O botón derecho-> Guardar enlace como... [Descargar](https://github.com/FIWAREZone/IoT_Course/raw/master/postman/ThinkingCities%20APIs.postman_collection.json)
+2. Descargar el [Collection](ThinkingCities%20APIs.postman_collection.json) de peticiones que se van a utilizar en la práctica. O botón derecho-> Guardar enlace como... [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course.postman_collection.json)
 
 3. Descargar el [environment](../ThinkingCities%20Enviroment%20Template.postman_environment.json) de variable de entorno necesarias para que funcione el "Collection". [Descargar](https://github.com/FIWAREZone/IoT_Course/raw/master/postman/ThinkingCities%20Enviroment%20Template.postman_environment.json)
 
