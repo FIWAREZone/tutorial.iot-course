@@ -14,11 +14,11 @@ Postman permite definir un catálogo de peticiones (Collection) y exportar/impor
 
 5. Abrir Postman.
 
-6. Importar la colección "FIWARE%20Zone%20Course.postman_collection.json"
+6. Importar la colección "FIWARE Zone Course.postman_collection.json"
 
 ![Importar Collection](https://github.com/danvilmot/IoT_Course/blob/master/postman/files/import_collection.jpg)
 
-7. Importar el environment "FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json"
+7. Importar el environment "FIWARE Zone Course Enviroment Template.postman_environment.json"
 
 ![Importar Environment](https://github.com/danvilmot/IoT_Course/blob/master/postman/files/import_environment.jpg)
 
