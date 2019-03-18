@@ -124,4 +124,4 @@ Para hacer pruebas con la API de FIWARE será necesario disponer de una herramie
 
 [Descargar](https://www.getpostman.com)
 
-[Configuración de postmam](https://github.com/FIWAREZone/IoT_Course/tree/master/postman)
+[Configuración de postman](https://github.com/FIWAREZone/IoT_Course/tree/master/postman)
