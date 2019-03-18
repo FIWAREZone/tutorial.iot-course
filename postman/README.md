@@ -1,6 +1,6 @@
-Para hacer pruebas con la API de FIWARE será necesario disponer de una herramienta que permita hacer peticiones HTTP e interactuar con esta. En este caso, nosotros recomendamos la herramienta Postman, que permite gestionar las colecciones de peticiones, por lo que será muy sencillo realizar las operaciones necesarias.
+Para hacer pruebas con la API de FIWARE será necesario disponer de una herramienta que permita hacer peticiones HTTP e interactuar con ésta. En este caso, recomendamos la herramienta Postman ya que permite gestionar y configurar de forma sencilla una colección de peticiones, por lo que será muy sencillo realizar las operaciones necesarias.
 
-Postman permite definir un catálogo de peticiones (Collection) y exportar/importar para facilitar el uso por otras personas. 
+Postman nos permite definir un catálogo de peticiones (Collection) y exportarlas para compartirlas con otras personas. 
 
 # Instalación y configuración de Postman
 
@@ -8,7 +8,7 @@ Postman permite definir un catálogo de peticiones (Collection) y exportar/impor
 
 2. Descargar el [Collection](FIWARE%20Zone%20Course.postman_collection.json) de peticiones que se van a utilizar en la práctica (botón derecho -> Guardar enlace como...) [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course.postman_collection.json)
 
-3. Descargar el [environment](FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json) de variable de entorno necesarias para que funcione el "Collection". [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json)
+3. Descargar el [environment](FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json) de variable de entorno necesarias para que funcione el "Collection" (botón derecho -> Guardar enlace como...) [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json)
 
 4. En este punto debemos tener Postman instalado y dos ficheros con extensión ".json" en nuestro PC.
 
