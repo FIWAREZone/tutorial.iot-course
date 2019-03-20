@@ -12,23 +12,23 @@ Postman nos permite definir un catálogo de peticiones ([Collection](FIWARE%20Zo
 
 1. Descargar [Postman](https://www.getpostman.com/) e instalar.
 
-2. Descargar el [Collection](FIWARE%20Zone%20Course.postman_collection.json) de peticiones que se van a utilizar en la práctica. [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course.postman_collection.json) (botón derecho -> Guardar enlace como...)
+2. Descargar el fichero ZIP con el Collection (peticiones) y el Environment (variables) que se van a utilizar en la práctica. [Enlace al fichero ZIP](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/Postman_Collection%26Environment.zip) (hacer click sobre la opción Download)
 
-3. Descargar el [environment](FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json) de variable de entorno necesarias para que funcione el "Collection". [Descargar](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/FIWARE%20Zone%20Course%20Enviroment%20Template.postman_environment.json) (botón derecho -> Guardar enlace como...)
+![Descargar ZIP](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/files/download_zip.jpg)
 
-4. En este punto debemos tener Postman instalado y dos ficheros con extensión ".json" en nuestro PC.
+3. En este punto debemos tener Postman instalado y dos ficheros con extensión ".json" en nuestro PC.
 
-5. Abrir Postman.
+4. Abrir Postman.
 
-6. Importar la colección "FIWARE Zone Course.postman_collection.json"
+5. Importar la colección "FIWARE Zone Course.postman_collection.json"
 
 ![Importar Collection](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/files/import_collection.jpg)
 
-7. Importar el environment "FIWARE Zone Course Enviroment Template.postman_environment.json"
+6. Importar el environment "FIWARE Zone Course Enviroment Template.postman_environment.json"
 
 ![Importar Environment](https://github.com/FIWAREZone/IoT_Course/blob/master/postman/files/import_environment.jpg)
 
-8. Configurar las credenciales: user, password, service y subservice (Service Path) que serán indicados durante la realización del curso de formación.
+7. Configurar las credenciales: user, password, service y subservice (Service Path) que serán indicados durante la realización del curso de formación.
 
 
 
