@@ -12,7 +12,6 @@
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager
 #include <ArduinoJson.h>          //https://github.com/bblanchon/ArduinoJson
 
-//#include "settings.h"
 
 ESP8266WebServer server(80);            //Web server
 WiFiManager wifiManager;                //Wifi Manager to setup WIFI SSID
@@ -20,36 +19,43 @@ ESP8266HTTPUpdateServer httpUpdater;    //For HTTP OTA Update
 HTTPClient http;                        //Declare object of class HTTPClient
 
 
+#define USE_CREDENTIALS
+
+
+
 
 
 /*************** Global Variables ***************/
 //FIWARE Variables
-String FIWARE_ID = "Sensor123CMD";
+String FIWARE_device_ID = "SENSOR_ID";
 String FIWARE_server = "195.235.93.235";
 String FIWARE_port = "8085";
-String FIWARE_token = "t3ftmt5e1pj9cdws5hzlalpky";
-//String FIWARE_token = "REEMPLAZAR_APIKEY";
+String FIWARE_apikey = "REEMPLAZAR_APIKEY";
+
+//Wifi Variables
+const char* WiFi_Network = "NOMBRE_WIFI";
+const char* WiFi_Password = "PASS_WIFI";
+
 const char* WiFi_SoftAP_Name = "FIWAREZone_IoT";
 const char* WiFi_SoftAP_WiFi_Name = "FIWAREZone_IoT_Wifi";
-
 
 //OTA
 const char* update_path = "/webota";
 const char* update_username = "admin";
 const char* update_password = "admin";
 
-char dev_hostname[30];
-
-
-//serial
+//Other Variables
 int transmisionStatus = 0;
 char rxBuf[64];
 int rxBufIndex;
+char dev_hostname[30];
 
 
 
 
 
+
+/*************** Setup Code ***************/
 void setup() {
   //serial Port setup
   Serial.begin(9600);
@@ -60,16 +66,32 @@ void setup() {
   Serial.print("Dev-name: ");
   Serial.println(dev_hostname);
 
-
   //reset settings - for testing
   //wifiManager.resetSettings();
 
   wifiManager.setTimeout(5);
 
-  //fetches ssid and pass and tries to connect
-  //if it does not connect it starts an access point with the specified name
-  //here FIWAREWifi and goes into a blocking loop awaiting configuration
-  
+
+//Configuring WIFI
+#ifdef USE_CREDENTIALS
+/***************************Hardcoded credentials*******************************/
+  WiFi.begin(WiFi_Network, WiFi_Password);
+
+  Serial.println();
+  Serial.print("Connecting");
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("success!");
+  Serial.print("IP Address is: ");
+  Serial.println(WiFi.localIP());
+
+
+#else
+  /***************************Wifi Manager usage********************************/
   if (!wifiManager.autoConnect(WiFi_SoftAP_Name, "")) {
     Serial.println("failed to connect and hit timeout");
     
@@ -97,6 +119,9 @@ void setup() {
     MDNS.addService("http", "tcp", 80);
 
   }
+#endif
+
+
 
   //Start OTA updater
   httpUpdater.setup(&server, update_path, update_username, update_password);
@@ -147,6 +172,4 @@ int ultralightSend (String URL, String port, String Token, String ID, String Bod
   http.end();  											//Close connection
   return httpCode;
 }
-
-
 

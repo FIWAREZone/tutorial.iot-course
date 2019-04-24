@@ -160,7 +160,7 @@ void handlePostUL2data(){
       page += F("<h1>Enviando datos a FIWARE</h1>");
 
       //Parse response
-      int returnCode = ultralightSend(FIWARE_server,FIWARE_port,FIWARE_token,FIWARE_ID,"temp|"+tmp+"#hr|"+rh);
+      int returnCode = ultralightSend(FIWARE_server,FIWARE_port,FIWARE_apikey,FIWARE_device_ID,"t|"+tmp+"#h|"+rh);
       if (returnCode ==200){
           page += F("<h3>Resultado</h3>");
           page += F("La peticion se ha ejecutado correctamente");
