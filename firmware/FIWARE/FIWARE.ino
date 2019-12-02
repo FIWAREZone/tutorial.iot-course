@@ -30,11 +30,11 @@ HTTPClient http;                        //Declare object of class HTTPClient
 String FIWARE_device_ID = "SENSOR_ID";
 String FIWARE_server = "195.235.93.235";
 String FIWARE_port = "8085";
-String FIWARE_apikey = "REEMPLAZAR_APIKEY";
+String FIWARE_apikey = "REPLACE_APIKEY";
 
 //Wifi Variables
-const char* WiFi_Network = "NOMBRE_WIFI";
-const char* WiFi_Password = "PASS_WIFI";
+const char* WiFi_Network = "WIFI_NAME";
+const char* WiFi_Password = "WIFI_PASS";
 
 const char* WiFi_SoftAP_Name = "FIWAREZone_IoT";
 const char* WiFi_SoftAP_WiFi_Name = "FIWAREZone_IoT_Wifi";
