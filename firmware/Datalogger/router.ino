@@ -1,4 +1,5 @@
 
+#ifndef USE_CREDENTIALS
 
 
 
@@ -184,25 +185,27 @@ void handlePostUL2data(){
 void handleSensors(){
  String page = FPSTR(HTTP_HEAD);
   page.replace("{v}", "Info");
-  page += FPSTR(HTTP_SCRIPT);
-  page += FPSTR(HTTP_STYLE);
-  page += FPSTR(HTTP_HEAD_END);
-  page += F("<h1>Sensors</h1>");
-  page += F("<h3>Temperature</h3>");
-  page += F("<h1>");
-  page += String(bmp.readTemperature());
-  page += F(" *C</h1>");
+  #ifndef SIMULATE_SENSOR_DATA
+    page += FPSTR(HTTP_SCRIPT);
+    page += FPSTR(HTTP_STYLE);
+    page += FPSTR(HTTP_HEAD_END);
+    page += F("<h1>Sensors</h1>");
+    page += F("<h3>Temperature</h3>");
+    page += F("<h1>");
+    page += String(bmp.readTemperature());
+    page += F(" *C</h1>");
 
-  page += F("<h3>Presure</h3>");
-  page += F("<h1>");
-  page += String(bmp.readPressure());
-  page += F(" Pa</h1>");
+    page += F("<h3>Presure</h3>");
+    page += F("<h1>");
+    page += String(bmp.readPressure());
+    page += F(" Pa</h1>");
 
-  page += F("<h3>Altitude</h3>");
-  page += F("<h1>");
-  page += String(bmp.readAltitude(101325));
-  page += F(" m</h1>");
-  
+    page += F("<h3>Altitude</h3>");
+    page += F("<h1>");
+    page += String(bmp.readAltitude(101325));
+    page += F(" m</h1>");
+  #endif
+
   page += F("To update values reload the page");
   page += FPSTR(HTTP_BACK_BUTTON);
   page += FPSTR(HTTP_END);
@@ -211,7 +214,7 @@ void handleSensors(){
 }
 
 
-
+#endif
 
 
 
