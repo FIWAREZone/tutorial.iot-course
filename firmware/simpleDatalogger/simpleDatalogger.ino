@@ -1,9 +1,6 @@
 /*********************************************
  *      Variables definition
  ********************************************/
-#define USE_CREDENTIALS
-#define SIMULATE_SENSOR_DATA
-
 #define _WIFI_NETWORK "myNetwokr"
 #define _WIFI_PASSWORD "myPassword"
 
@@ -15,6 +12,7 @@
 #define _SENDING_INTERVAL_MS 15000
 /********************************************/
 
+// Libraries
 #include <FS.h>                   //this needs to be first, or it all crashes and burns...
 
 //ESP8266 Native libraries
@@ -28,21 +26,6 @@
 //External libraries
 #include <ArduinoJson.h>          //https://github.com/bblanchon/ArduinoJson
 
-#ifndef USE_CREDENTIALS
-  #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager
-  WiFiManager wifiManager;                //Wifi Manager to setup WIFI SSID
-#endif
-
-
-// I2C Barometric sensor libraries
-#ifndef SIMULATE_SENSOR_DATA
-  #include <Wire.h>
-  #include <Adafruit_BMP085.h>
-  #define SCL_PIN D1
-  #define SDA_PIN D2
-  Adafruit_BMP085 bmp;
-#endif
-
 // Function definitios
 void dataSenderCallback();
 
@@ -52,7 +35,6 @@ unsigned long previousMillis=0;
 unsigned long deltaMillis=_SENDING_INTERVAL_MS;
 
 //ESP8266 objects
-ESP8266WebServer server(80);            //Web server
 ESP8266HTTPUpdateServer httpUpdater;    //For HTTP OTA Update
 HTTPClient http;                        //Declare object of class HTTPClient
 
@@ -62,26 +44,11 @@ String FIWARE_server      = _FIWARE_server;
 String FIWARE_port        = _FIWARE_port;
 String FIWARE_apikey      = _FIWARE_apikey;
 
-//Wifi Variables
-#ifdef USE_CREDENTIALS
-  const char* WiFi_Network = _WIFI_NETWORK;
-  const char* WiFi_Password = _WIFI_PASSWORD;
-#else
-  const char* WiFi_SoftAP_Name = "FIWAREZone_IoT";
-  const char* WiFi_SoftAP_WiFi_Name = "FIWAREZone_IoT_Wifi";
-#endif
-
-//OTA
-const char* update_path = "/webota";
-const char* update_username = "admin";
-const char* update_password = "admin";
-
 //Other Variables
 int transmisionStatus = 0;
 char rxBuf[64];
 int rxBufIndex;
 char dev_hostname[30];
-
 
 
 
@@ -91,7 +58,7 @@ char dev_hostname[30];
 void setup() {
   //serial Port setup
   Serial.begin(9600);
-  Serial.println("\n FIWARE Zone IoT Device");
+  Serial.println("\r\n\n\n\n\r***********************\n\rFIWARE Zone IoT Device");
 
   //Setup Hostname
   (String("SC-") + ESP.getChipId()).toCharArray(dev_hostname, 30);
@@ -99,9 +66,7 @@ void setup() {
   Serial.println(dev_hostname);
 
 //Configuring WIFI
-#ifdef USE_CREDENTIALS
-/***************************Hardcoded credentials*******************************/
-  WiFi.begin(WiFi_Network, WiFi_Password);
+  WiFi.begin(_WIFI_NETWORK, _WIFI_PASSWORD);
 
   Serial.println();
   Serial.print("Connecting");
@@ -115,68 +80,6 @@ void setup() {
   Serial.print("IP Address is: ");
   Serial.println(WiFi.localIP());
 
-#else
-  /***************************Wifi Manager usage********************************/
-  wifiManager.setTimeout(5);
-
-
-  if (!wifiManager.autoConnect(WiFi_SoftAP_Name, "")) {
-    Serial.println("failed to connect and hit timeout");
-    
-    //Start Soft AP
-    WiFi.softAP(WiFi_SoftAP_Name, "");
-    IPAddress myIP = WiFi.softAPIP();
-    Serial.print("AP IP address: ");
-    Serial.println(myIP);
-  }
-  else {
-
-    //if you get here you have connected to the WiFi
-    Serial.println("Connected!");
-
-    // Set up mDNS responder:
-    if (!MDNS.begin(dev_hostname)) {
-      Serial.println("Error setting up MDNS responder!");
-      while (1) {
-        delay(1000);
-      }
-    }
-    Serial.println("mDNS responder started");
-
-    // Add service to MDNS-SD
-    MDNS.addService("http", "tcp", 80);
-
-  }
-  
-  //Start OTA updater
-  httpUpdater.setup(&server, update_path, update_username, update_password);
-
-  // Start TCP (HTTP) server
-  server.begin();
-  Serial.println("TCP server started");
-
-  //Bind Webserver URL functions
-  server.on ( "/", handleRoot );
-  server.on ( "/wrst", handleWrst );
-  server.on ( "/wifi", handleWifi );
-  server.on ( "/webota", handleWebota );
-  server.on ( "/help", handleHelp );
-  server.on ( "/postul2", handlePostUL2 );
-  server.on ( "/postul2data", handlePostUL2data );
-  server.on ( "/sensors", handleSensors );
-#endif
-
-
-#ifndef SIMULATE_SENSOR_DATA
-  // I2C Sensor Initialization
-  Wire.pins(SDA_PIN, SCL_PIN);
-  Wire.begin(SDA_PIN, SCL_PIN);
-  if (!bmp.begin()) {
-     Serial.println("No BMP180 / BMP085");// we dont wait for this
-     while (1) {}
-  }
-#endif
-
 }
 
 
@@ -184,12 +87,10 @@ void setup() {
 /*********************************************
  *                Loop Code
  ********************************************/
+
 void loop() {
-  //WebServer task
-  server.handleClient();
 
-
-  if (millis()>previousMillis+deltaMillis){
+  if (millis()>previousMillis+_SENDING_INTERVAL_MS){
     previousMillis=millis();
     //Execute task
     dataSenderCallback();
@@ -233,15 +134,9 @@ String dataReaderSensor(){
     String p_meas;
     String a_meas;
 
-#ifndef SIMULATE_SENSOR_DATA
-    t_meas = String(bmp.readTemperature());
-    p_meas = String(bmp.readPressure());
-    a_meas = String(bmp.readAltitude(101325));            // insert pressure at sea level
-#else
     t_meas = random(0,40);
     p_meas = random(100000,102000);
     a_meas = random(0,3000);
-#endif
 
     Serial.println("\nReading data from sensors:");
     Serial.println(" - T=" + t_meas + " *C");
